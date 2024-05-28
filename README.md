@@ -9,9 +9,9 @@
     ```
 3. Create a `.env` file with the following content:
     ```env
-  DB_URI= 'mongodb://127.0.0.1:27017/crypto-notifier'
-  API_KEY=coinranking053f8eb5b815ed164e6b337b8b404c5541613e06901a21a8
-  NODE_ENV = development
+   DB_URI= 'mongodb://127.0.0.1:27017/crypto-notifier'
+   API_KEY=coinranking053f8eb5b815ed164e6b337b8b404c5541613e06901a21a8
+   NODE_ENV = development
     ```
 4. Start the application
     ```bash
