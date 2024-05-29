@@ -25,3 +25,12 @@ exports.addToWatchlist = async (req, res) => {
 		res.status(500).json({ error: error.message })
 	}
 }
+
+exports.getAllWatchList = async (req, res) => {
+	try {
+		const watchlist = await Watchlist.find()
+		res.json(watchlist)
+	} catch (error) {
+		res.status(500).json({ error: error.message })
+	}
+}

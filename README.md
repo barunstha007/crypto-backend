@@ -12,6 +12,7 @@
    DB_URI= 'mongodb://127.0.0.1:27017/crypto-notifier'
    API_KEY=coinranking053f8eb5b815ed164e6b337b8b404c5541613e06901a21a8
    NODE_ENV = development
+   PORT = 3000
     ```
 4. Start the application
     ```bash
@@ -31,6 +32,22 @@
         "min_price": 35000,
         "max_price": 60000
     }
+    ```
+
+### Get All Watchlist
+
+- **URL**: `/api/watchlist`
+- **Method**: `get`
+    ```
+### Get All notifications
+
+- **URL**: `/api/notifications`
+- **Method**: `get`
+    ```
+### Get All crypto
+
+- **URL**: `/api/cryptos`
+- **Method**: `get`
     ```
 
 ## Cron Job
