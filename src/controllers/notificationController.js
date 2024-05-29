@@ -3,10 +3,12 @@ const Notification = require('../models/notification')
 exports.getAllNotification = async (req, res) => {
 	try {
 		const notifications = await Notification.find()
-		if (notifications.length > 0) {
-			res.json(notifications)
+		if (!notifications || notifications.length === 0) {
+			return res.status(404).json({ error: 'No notifications found' })
 		}
+		res.json(notifications)
 	} catch (error) {
-		res.status(500).json({ error: error.message })
+		console.error('Error while fetching notifications:', error)
+		res.status(500).json({ error: 'Internal Server Error' })
 	}
 }

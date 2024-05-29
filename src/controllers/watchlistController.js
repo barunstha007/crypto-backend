@@ -29,8 +29,12 @@ exports.addToWatchlist = async (req, res) => {
 exports.getAllWatchList = async (req, res) => {
 	try {
 		const watchlist = await Watchlist.find()
+		if (!watchlist || watchlist.length === 0) {
+			return res.status(404).json({ error: 'Watchlist is empty' })
+		}
 		res.json(watchlist)
 	} catch (error) {
-		res.status(500).json({ error: error.message })
+		console.error('Error while fetching watchlist:', error)
+		res.status(500).json({ error: 'Internal Server Error' })
 	}
 }

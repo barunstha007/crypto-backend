@@ -1,13 +1,14 @@
 const Crypto = require('../models/cryptocurrency')
 
 exports.getAllCrypto = async (req, res) => {
-  console.log( "inside get all crypto")
-  try {
+	try {
 		const cryptos = await Crypto.find()
-		if (cryptos.length > 0) {
-			res.json(cryptos)
+		if (!cryptos || cryptos.length === 0) {
+			return res.status(404).json({ error: 'No cryptocurrencies found' })
 		}
+		res.json(cryptos)
 	} catch (error) {
-		res.status(500).json({ error: error.message })
+		console.error('Error while fetching cryptocurrencies:', error)
+		res.status(500).json({ error: 'Internal Server Error' })
 	}
 }
